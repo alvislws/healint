@@ -1,4 +1,4 @@
-import { Category, DummyExpenseInterface } from "../types.ts/apiTypes"
+import { Category, DummyExpenseInterface } from "../types.ts/apiTypes";
 
 export const dummyExpenseData: DummyExpenseInterface = {
     userName: 'alvis',
