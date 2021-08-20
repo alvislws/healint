@@ -1,6 +1,6 @@
 import { Category, DummyExpenseInterface } from "../types.ts/apiTypes";
 
-export const dummyExpenseData: DummyExpenseInterface = {
+export const dummyExpensesData: DummyExpenseInterface = {
     userName: 'alvis',
     name: 'alvis',
     balance: 100000,

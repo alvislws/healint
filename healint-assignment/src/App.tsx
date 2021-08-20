@@ -2,32 +2,12 @@ import { useState } from "react";
 import "./App.css";
 import LoginForm from "./components/login/loginForm";
 import NavigationBar from "./components/navBar/navigationBar";
-import { user } from "./staticData/userLogin";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./components/home";
 
 function App(): JSX.Element {
-  const [validated, setValidated] = useState<boolean>(false);
   const [userCredentials, setUserCredentials] = useState<UserCredential>({});
   const [loginStatus, setLoginStatus] = useState<boolean>(false);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-    const form = e.currentTarget;
-    const validateLoginCredential =
-      userCredentials.username === user.username &&
-      userCredentials.password === user.password;
-    if (!form.checkValidity()) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    if (validateLoginCredential) {
-      setLoginStatus(true);
-    }
-    if (!validateLoginCredential) {
-      e.preventDefault();
-      e.stopPropagation();
-      alert("Please use the credentials stated below the input field");
-    }
-    setValidated(true);
-  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
@@ -41,16 +21,25 @@ function App(): JSX.Element {
         name={userCredentials.username}
         loginStatus={loginStatus}
       />
-      <LoginForm
-        validated={validated}
-        handleSubmit={handleSubmit}
-        handleInputChange={handleInputChange}
-      />
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <LoginForm
+              userCredentials={userCredentials}
+              setLoginStatus={setLoginStatus}
+              handleInputChange={handleInputChange}
+            />
+          </Route>
+          <Route path="/home">
+            <Home loginStatus={loginStatus} />
+          </Route>
+        </Switch>
+      </Router>
     </>
   );
 }
 
-interface UserCredential {
+export interface UserCredential {
   [key: string]: string;
 }
 

@@ -2,12 +2,43 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/esm/Card";
 import InputField from "./inputFields";
+import { user } from "../../staticData/userLogin";
+import { useHistory } from "react-router-dom";
+import { UserCredential } from "../../App";
+import { useState } from "react";
 
 function LoginForm({
-  validated,
-  handleSubmit,
   handleInputChange,
+  userCredentials,
+  setLoginStatus,
 }: LoginFormProps): JSX.Element {
+  const [validated, setValidated] = useState<boolean>(false);
+
+  let history = useHistory();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    const form = e.currentTarget;
+    const validateLoginCredential =
+      userCredentials.username === user.username &&
+      userCredentials.password === user.password;
+    if (!form.checkValidity()) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    if (validateLoginCredential) {
+      e.preventDefault();
+      e.stopPropagation();
+      setLoginStatus(true);
+      history.push("/home");
+    }
+    if (!validateLoginCredential) {
+      e.preventDefault();
+      e.stopPropagation();
+      alert("Please use the credentials stated below the input field");
+    }
+    setValidated(true);
+  };
+
   return (
     <div
       style={{
@@ -33,9 +64,9 @@ function LoginForm({
 }
 
 interface LoginFormProps {
-  validated: boolean;
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  userCredentials: UserCredential;
+  setLoginStatus: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default LoginForm;
