@@ -1,4 +1,4 @@
-import { Category, DummyExpenseInterface } from "../types.ts/apiTypes";
+import { DummyExpenseInterface } from "../types.ts/apiTypes";
 
 export const dummyExpensesData: DummyExpenseInterface = {
     userName: 'alvis',
@@ -6,80 +6,50 @@ export const dummyExpensesData: DummyExpenseInterface = {
     balance: 100000,
     categories: [
         {
-            name: Category.foodAndBeverage,
-            transactions: [
-                {
-                    amount: -5,
-                    date: '19/08/2021',
-                    note: ''
-                }
-            ] 
-        },
-        {
-            name: Category.transportation,
-            transactions: [
-                {
-                    amount: -2,
-                    date: '18/08/2021',
-                    note: ''
-                },
-                {
-                    amount: -4,
-                    date: '18/08/2021',
-                    note: ''
-                },
-                {
-                    amount: -2,
-                    date: '13/08/2021',
-                    note: ''
-                }
-            ]
-        },
-        {
-            name: Category.bills,
-            transactions: [
-                {
-                    amount: -40,
-                    date: '20/08/2021',
-                    note: 'electricity'
-                },
-                {
-                    amount: -30,
-                    date: '20/08/2021',
-                    note: 'water'
-                },
-                {
-                    amount: -20,
-                    date: '20/08/2021',
-                    note: 'internet bills'
-                },
-                {
-                    amount: -10,
-                    date: '20/08/2021',
-                    note: 'phone bills'
-                },
-                {
-                    amount: -60,
-                    date: '20/08/2021',
-                    note: 'credit card'
-                }
-            ]
-        },
-        {
-            name: Category.others,
-            transactions: [
-                {
-                    amount: -40,
-                    date: '30/12/2020',
-                    note: 'games'
-                },
-                {
-                    amount: -30,
-                    date: '11/03/2021',
-                    note: 'birthday gift'
-                }
-            ]
-        }
+            itemAmount: 800,
+            expenseDate: "22.05.2020",
+            itemName: "Harry Potter Book 1",
+            isDeleted: false,
+            category: "Education",
+            note: '',
+            id: "1"
+          },
+          {
+            itemAmount: 3000,
+            expenseDate: "02.04.2020",
+            itemName: "School Fee",
+            isDeleted: false,
+            category: "Bills",
+            note: '',
+            id: "2"
+          },
+          {
+            itemAmount: 800,
+            expenseDate: "02.04.2020",
+            itemName: "Harry Potter Book 1",
+            isDeleted: false,
+            category: "Education",
+            note: '',
+            id: "3"
+          },
+          {
+            itemAmount: 4000,
+            expenseDate: "02.04.2020",
+            itemName: "Bought Many Vegetables",
+            isDeleted: false,
+            category: "Food and Beverage",
+            note: '',
+            id: "4"
+          },
+          {
+            itemAmount: 450,
+            expenseDate: "10.01.2010",
+            itemName: "Grocery",
+            isDeleted: false,
+            category: "Food and Beverag",
+            note: '',
+            id: "5"
+          }
     ]
 }
 

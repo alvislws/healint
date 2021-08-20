@@ -1,10 +1,3 @@
-export enum Category {
-    foodAndBeverage = 'Food & Beverage',
-    transportation = 'Transportation',
-    bills = 'Bills',
-    others = 'Others'
-}
-
 export interface DummyExpenseInterface {
     categories: Array<Categories>
     userName: string
@@ -13,12 +6,13 @@ export interface DummyExpenseInterface {
 }
 
 interface Categories {
-    name: Category,
-    transactions: Array<expenseDataInterface>
+    itemAmount: number
+    expenseDate: string
+    itemName: string
+    isDeleted: boolean
+    category: string
+    note: string
+    id: string
 }
 
-interface expenseDataInterface {
-    amount: number
-    date: string
-    note: string
-}
+
