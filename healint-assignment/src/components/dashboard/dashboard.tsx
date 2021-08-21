@@ -3,6 +3,7 @@ import { Button, Card, ListGroup, Modal } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { dummyExpensesData } from "../../staticData/dummyExpenses";
 import { Categories } from "../../types.ts/apiTypes";
+import Chart from "../chart/chart";
 import Table from "../table/table";
 import DashboardForm from "./form";
 
@@ -103,7 +104,7 @@ function Dashboard({ loginStatus }: HomeProps): JSX.Element {
             <DashboardForm
               handleSubmit={handleSubmit}
               balance={balance}
-              title="Add a Transaction"
+              title="Add Expenses"
             />
           </Modal.Body>
         </Modal>
@@ -113,6 +114,7 @@ function Dashboard({ loginStatus }: HomeProps): JSX.Element {
         setExpensePayload={setExpensePayload}
         balance={balance}
       />
+      <Chart expensePayload={expensePayload} />
     </div>
   );
 }

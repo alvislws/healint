@@ -110,7 +110,7 @@ function Table({
           </Modal.Body>
         </Modal>
         <Card.Title as="h5" style={{ textAlign: "center", padding: "1rem" }}>
-          List of Transaction
+          List of Expenses
         </Card.Title>
         <DataTable
           columns={columns}

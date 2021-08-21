@@ -21,9 +21,9 @@ function DashboardForm({
           as="select"
           defaultValue={rowData && rowData.category}
         >
-          <option value="bills">Bills</option>
-          <option value="education">Education</option>
-          <option value="foodAndBeverage">Food and Beverage</option>
+          <option value="Bills">Bills</option>
+          <option value="Education">Education</option>
+          <option value="Food and Beverage">Food and Beverage</option>
         </Form.Control>
       </Form.Group>
       <Form.Group className="mb-3" controlId="amount">
@@ -32,13 +32,9 @@ function DashboardForm({
           defaultValue={rowData && rowData.itemAmount}
           name="amount"
           type="number"
+          min="0.00"
+          step="0.01"
           required
-          onChange={(e) =>
-            Number(e.target.value) > balance &&
-            alert(
-              "The amount you entered is currently exceedingly your wallet balance"
-            )
-          }
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="note">
