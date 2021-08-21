@@ -13,15 +13,25 @@ function Chart({ expensePayload }: ChartProps): JSX.Element {
 
   sortedPayload.map((value) => dateLabel.push(value.expenseDate));
 
-  const transactionAmount = [];
-  sortedPayload.map((value) => transactionAmount.push(value.itemAmount));
+  const listOfTransaction = [];
+  const res: Array<{ expenseDate: string; itemAmount: number }> = Object.values(
+    sortedPayload.reduce((r, o) => {
+      r[o.expenseDate] = r[o.expenseDate] || {
+        expenseDate: o.expenseDate,
+        itemAmount: 0,
+      };
+      r[o.expenseDate].itemAmount += +o.itemAmount;
+      return r;
+    }, {})
+  );
 
+  res.map((value) => listOfTransaction.push(value.itemAmount));
   const data = {
-    labels: dateLabel,
+    labels: [...new Set(dateLabel)],
     datasets: [
       {
         label: "Expenses over time",
-        data: transactionAmount,
+        data: listOfTransaction,
         fill: true,
         backgroundColor: "rgba(75,192,192,0.2)",
         borderColor: "rgba(75,192,192,1)",
