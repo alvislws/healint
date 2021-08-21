@@ -7,8 +7,7 @@ export const dummyExpensesData: DummyExpenseInterface = {
     categories: [
         {
             itemAmount: 800,
-            expenseDate: "22.05.2020",
-            itemName: "Harry Potter Book 1",
+            expenseDate: "2021-05-17",
             isDeleted: false,
             category: "Education",
             note: '',
@@ -16,8 +15,7 @@ export const dummyExpensesData: DummyExpenseInterface = {
           },
           {
             itemAmount: 3000,
-            expenseDate: "02.04.2020",
-            itemName: "School Fee",
+            expenseDate: "2021-04-01",
             isDeleted: false,
             category: "Bills",
             note: '',
@@ -25,8 +23,7 @@ export const dummyExpensesData: DummyExpenseInterface = {
           },
           {
             itemAmount: 800,
-            expenseDate: "02.04.2020",
-            itemName: "Harry Potter Book 1",
+            expenseDate: "2021-03-02",
             isDeleted: false,
             category: "Education",
             note: '',
@@ -34,8 +31,7 @@ export const dummyExpensesData: DummyExpenseInterface = {
           },
           {
             itemAmount: 4000,
-            expenseDate: "02.04.2020",
-            itemName: "Bought Many Vegetables",
+            expenseDate: "2021-04-01",
             isDeleted: false,
             category: "Food and Beverage",
             note: '',
@@ -43,10 +39,9 @@ export const dummyExpensesData: DummyExpenseInterface = {
           },
           {
             itemAmount: 450,
-            expenseDate: "10.01.2010",
-            itemName: "Grocery",
+            expenseDate: "2021-10-22",
             isDeleted: false,
-            category: "Food and Beverag",
+            category: "Food and Beverage",
             note: '',
             id: "5"
           }

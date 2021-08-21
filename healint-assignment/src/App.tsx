@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./App.css";
-import LoginForm from "./components/login/loginForm";
+import LoginForm from "./components/login/form";
 import NavigationBar from "./components/navBar/navigationBar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./components/home";
+import Dashboard from "./components/dashboard/dashboard";
 
 function App(): JSX.Element {
   const [userCredentials, setUserCredentials] = useState<UserCredential>({});
@@ -31,7 +31,7 @@ function App(): JSX.Element {
             />
           </Route>
           <Route path="/home">
-            <Home loginStatus={loginStatus} />
+            <Dashboard loginStatus={loginStatus} />
           </Route>
         </Switch>
       </Router>
