@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/healint/static/css/main.a617e044.chunk.css",
+    "main.js": "/healint/static/js/main.e4481c66.chunk.js",
+    "main.js.map": "/healint/static/js/main.e4481c66.chunk.js.map",
+    "runtime-main.js": "/healint/static/js/runtime-main.5b1a38ba.js",
+    "runtime-main.js.map": "/healint/static/js/runtime-main.5b1a38ba.js.map",
+    "static/css/2.818011ed.chunk.css": "/healint/static/css/2.818011ed.chunk.css",
+    "static/js/2.1acb9935.chunk.js": "/healint/static/js/2.1acb9935.chunk.js",
+    "static/js/2.1acb9935.chunk.js.map": "/healint/static/js/2.1acb9935.chunk.js.map",
+    "index.html": "/healint/index.html",
+    "static/css/2.818011ed.chunk.css.map": "/healint/static/css/2.818011ed.chunk.css.map",
+    "static/css/main.a617e044.chunk.css.map": "/healint/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.1acb9935.chunk.js.LICENSE.txt": "/healint/static/js/2.1acb9935.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5b1a38ba.js",
+    "static/css/2.818011ed.chunk.css",
+    "static/js/2.1acb9935.chunk.js",
+    "static/css/main.a617e044.chunk.css",
+    "static/js/main.e4481c66.chunk.js"
+  ]
+}
