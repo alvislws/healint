@@ -1,5 +1,6 @@
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 
 interface NavigationBarProps {
   name?: string;
@@ -16,12 +17,14 @@ function NavigationBar({ name, loginStatus }: NavigationBarProps): JSX.Element {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           {loginStatus && (
-            <Navbar.Text style={{ color: "white" }}>
-              Signed in as:{" "}
-              <a href="#login" style={{ color: "white" }}>
-                {name}
-              </a>
-            </Navbar.Text>
+            <>
+              <Nav.Link style={{ color: "white" }} disabled>
+                Signed in as: {name}
+              </Nav.Link>
+              <Nav.Link href="/" style={{ color: "white" }}>
+                Sign out
+              </Nav.Link>
+            </>
           )}
         </Navbar.Collapse>
       </Container>

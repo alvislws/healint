@@ -120,7 +120,7 @@ function Table({
           responsive
           paginationPerPage={5}
           paginationRowsPerPageOptions={[5, 15, 25, 50]}
-          style={{ width: "35rem" }}
+          style={{ width: "50rem" }}
         />
       </Card>
     </>

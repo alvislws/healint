@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, ListGroup } from "react-bootstrap";
+import { Button, Card, ListGroup, Modal } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { dummyExpensesData } from "../../staticData/dummyExpenses";
 import { Categories } from "../../types.ts/apiTypes";
@@ -8,7 +8,10 @@ import DashboardForm from "./form";
 
 function Dashboard({ loginStatus }: HomeProps): JSX.Element {
   const [expensePayload, setExpensePayload] = useState<Array<Categories>>([]);
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   let history = useHistory();
 
   const totalOutflow = expensePayload.reduce((previousValue, currentValue) => {
@@ -40,6 +43,7 @@ function Dashboard({ loginStatus }: HomeProps): JSX.Element {
       },
     ];
     setExpensePayload(updatedListOfTransaction);
+    setShow(false);
     e.preventDefault();
   };
 
@@ -53,7 +57,7 @@ function Dashboard({ loginStatus }: HomeProps): JSX.Element {
         margin: "1rem",
       }}
     >
-      <Card style={{ width: "35rem" }}>
+      <Card style={{ width: "50rem" }}>
         <Card.Title as="h5" style={{ textAlign: "center", padding: "1rem" }}>
           Overview
         </Card.Title>
@@ -90,11 +94,19 @@ function Dashboard({ loginStatus }: HomeProps): JSX.Element {
             <span style={{ color: balance < 0 && "red" }}>${balance}</span>
           </ListGroup.Item>
         </ListGroup>
-        <DashboardForm
-          handleSubmit={handleSubmit}
-          balance={balance}
-          title="Add a Transaction"
-        />
+        <Button variant="success" onClick={handleShow}>
+          Add a transaction
+        </Button>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton style={{ borderBottom: "none" }} />
+          <Modal.Body>
+            <DashboardForm
+              handleSubmit={handleSubmit}
+              balance={balance}
+              title="Add a Transaction"
+            />
+          </Modal.Body>
+        </Modal>
       </Card>
       <Table
         expensePayload={expensePayload}
