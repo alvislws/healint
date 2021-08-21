@@ -10,7 +10,7 @@ export const dummyExpensesData: DummyExpenseInterface = {
             expenseDate: "2021-05-17",
             isDeleted: false,
             category: "Education",
-            note: '',
+            note: 'final year tuition',
             id: "1"
           },
           {

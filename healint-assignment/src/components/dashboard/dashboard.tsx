@@ -3,6 +3,7 @@ import { Card, ListGroup } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { dummyExpensesData } from "../../staticData/dummyExpenses";
 import { Categories } from "../../types.ts/apiTypes";
+import Table from "../table/table";
 import DashboardForm from "./form";
 
 function Dashboard({ loginStatus }: HomeProps): JSX.Element {
@@ -32,7 +33,7 @@ function Dashboard({ loginStatus }: HomeProps): JSX.Element {
       {
         itemAmount: Number(form.amount.value),
         category: form.category.value,
-        note: form.note.value,
+        note: form.notes.value,
         expenseDate: form.date.value,
         isDeleted: false,
         id: (Number(expensePayload.length) + 1).toString(),
@@ -89,8 +90,17 @@ function Dashboard({ loginStatus }: HomeProps): JSX.Element {
             <span style={{ color: balance < 0 && "red" }}>${balance}</span>
           </ListGroup.Item>
         </ListGroup>
-        <DashboardForm handleSubmit={handleSubmit} balance={balance} />
+        <DashboardForm
+          handleSubmit={handleSubmit}
+          balance={balance}
+          title="Add a Transaction"
+        />
       </Card>
+      <Table
+        expensePayload={expensePayload}
+        setExpensePayload={setExpensePayload}
+        balance={balance}
+      />
     </div>
   );
 }
